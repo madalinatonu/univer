@@ -8,9 +8,9 @@
 6. Afișarea vocalelor conținute în vector */
 
 #include <stdio.h>
-#include <stdlib.h>
 
-// asta nu știu cum lucrează, nu ne-ați învățat soratera !!!
+
+// Nu știu cum lucrează punctul 5, nu am învățat soratera
 void insertionSort(char arr[], int n)
 {
     int i, j;
@@ -26,7 +26,7 @@ void insertionSort(char arr[], int n)
 
 int main()
 {
-    char *vector, *aux;
+    char vector[20], aux[20];
     int n = 0, optiune, i;
 
     do
@@ -50,15 +50,10 @@ int main()
         case 1:
             printf("\nCate elemente are vectorul? ");
             scanf("%d", &n);
-            vector = (char *)malloc(sizeof(char) * n);
-            aux = (char *)malloc(sizeof(char) * n);
-            
             for (i = 0; i < n; i++)
             {
                 scanf(" %c", &vector[i]);
-                aux[i] = vector[i];
             }
-
             break;
 
         case 2:
@@ -69,6 +64,9 @@ int main()
             break;
 
         case 3:
+            for (i = 0; i < n; i++)
+                aux[i] = vector[i];
+
             insertionSort(aux, n);
             for (i = 0; i < n; i++)
                 printf("%c ", aux[i]);
@@ -76,6 +74,9 @@ int main()
             break;
 
         case 4:
+            for (i = 0; i < n; i++)
+                aux[i] = vector[i];
+
             insertionSort(aux, n);
             for (i = n-1; i >= 0; i--)
                 printf("%c ", aux[i]);
