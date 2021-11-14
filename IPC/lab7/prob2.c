@@ -1,23 +1,33 @@
 /*Să se scrie un program C care să citească de la tastatură un cuvânt şi să verifice dacă
 respectivul cuvânt este palindrom (cuvânt care poate fi citit de la stânga la dreapta şi 
-de la dreapta la stânga fără să-şi piardă sensul: cojoc, capac, rar).*/
+de la dreapta la stânga fără să-şi piardă sensul: cojoc, capca, rar).*/
 
-#include<stdio.h>
-#include<string.h>
+#include <stdio.h>
+#include <string.h>
 
-int main(void)
+int main()
 {
-    char a[100],b[100];
-    printf("\nScrieti un cuvant pentru a vedea daca este poliedru: ");
-    gets(a);
-    printf("\nAti tastat: %s ", a);
-    strcpy(b,a);//Copiem sirul a in sirul b
-    printf("\nAti tastat: %s", b) ;
-    strlen(b);
-    if (strcpy(b,a)==0)
-        printf("\nCuvantul este polindrom");
-    else 
-        printf("\nCuvantul nu este polindrom");
+    char str[100];
+    int lastIndex, middle = 0;;
 
-return 0;
+    printf("\nScrieti un cuvant pentru a vedea daca este polindrom: ");
+    scanf("%s", str);
+
+    lastIndex = strlen(str) - 1;
+
+    // handle odd str len
+    middle = (lastIndex + 2) / 2;
+
+    for (int i = 0; i < middle; i++)
+    {
+        if (str[i] != str[lastIndex - i])
+        {
+            printf("Cuvantul nu este polindrom");
+            return 0;
+        }
+    }
+
+    printf("Cuvantul este polindrom");
+
+    return 0;
 }
